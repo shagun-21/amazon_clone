@@ -17,7 +17,11 @@ class AuthScreen extends StatefulWidget {
 
 class _AuthScreenState extends State<AuthScreen> {
 
-  Auth _auth=  Auth.signin;
+  Auth _auth=  Auth.signup;
+  final signUpFormKey= GlobalKey<FormState>();
+  final signInFormKey= GlobalKey<FormState>();
+
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -45,6 +49,11 @@ class _AuthScreenState extends State<AuthScreen> {
                   });
                 },
               ),
+            ),
+            if(_auth==Auth.signup)
+            Form(
+              key: signUpFormKey,
+              child: Column(),
             ),
             ListTile(
               title: Text("Sign-In",
